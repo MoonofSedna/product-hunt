@@ -122,7 +122,6 @@ const Container = styled.div`
   .has-voted:hover {
     background: var(--green);
     color: var(--white);
-    border: 2px solid var(--green);
   }
   .has-voted svg {
     color: var(--red2);
@@ -131,11 +130,9 @@ const Container = styled.div`
   .delete-product {
     background: var(--red2);
     color: var(--white);
-    border: 2px solid var(--red2);
     margin: 1rem 0;
     &:hover {
       background: var(--purple);
-      border: 2px solid var(--purple);
     }
     svg {
       position: relative;

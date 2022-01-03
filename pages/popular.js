@@ -46,7 +46,7 @@ const Container = styled.div`
   & h3 {
     font-size: 2.4rem;
     margin: 1.4rem 0;
-    color: var(--green);
+    color: var(--aqua);
   }
 
   & button {
@@ -59,7 +59,7 @@ const Container = styled.div`
 
 export default function Popular() {
   const [page, setPage] = useState(1);
-  const { products, loading, pageSize } = useProduct("createdAt", page, 5);
+  const { products, loading, pageSize } = useProduct("votes", page, 5);
 
   return (
     <Container>

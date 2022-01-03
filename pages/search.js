@@ -45,7 +45,7 @@ const Container = styled.div`
   & h3 {
     font-size: 2.4rem;
     margin: 1.4rem 0;
-    color: var(--green);
+    color: var(--aqua);
   }
 
   & button {
@@ -73,7 +73,7 @@ export default function Search() {
     });
     setResults(filtered);
   }, [q, products]);
-  console.log(products);
+
   return (
     <Container>
       <ProductsContainer>

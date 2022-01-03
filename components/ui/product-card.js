@@ -48,6 +48,7 @@ const Container = styled.div`
   & h3 {
     font-size: 2.5rem;
     cursor: pointer;
+    color: var(--green);
   }
   & h4 {
     font-size: 1.8rem;
@@ -137,7 +138,7 @@ export default function ProductCard({
       <Container>
         <div>
           <Link href={`/products/${id}`} passHref>
-            <h3>{name}</h3>
+            <h3 className="name">{name}</h3>
           </Link>
 
           {/* <span>{company}</span> */}

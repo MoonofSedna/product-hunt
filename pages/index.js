@@ -44,10 +44,11 @@ const Container = styled.div`
   padding: 2rem 0;
   margin-top: 8rem;
   & h3 {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     margin: 1.4rem 0;
-    color: var(--green);
+    color: var(--aqua);
   }
+
   & button {
     margin: 2rem 0;
   }

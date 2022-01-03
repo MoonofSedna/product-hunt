@@ -60,7 +60,6 @@ class Firebase {
       email,
       password
     );
-    console.log(user);
     updateProfile(user, {
       displayName: name,
     });
