@@ -44,10 +44,11 @@ const Container = styled.div`
   padding: 2rem 0;
   margin-top: 8rem;
   & h3 {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     margin: 1.4rem 0;
     color: var(--green);
   }
+
   & button {
     margin: 2rem 0;
   }
@@ -63,7 +64,7 @@ export default function Popular() {
   return (
     <Container>
       <ProductsContainer>
-        <h1>Latest products </h1>
+        <h1>Popular </h1>
         {loading && <ClimbingBoxLoader color=" #bffcfb" size={10} />}
         {!loading &&
           products?.length > 0 &&

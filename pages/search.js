@@ -1,10 +1,9 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 import ProductCard from "../components/ui/product-card";
 import styled from "@emotion/styled";
 import useProduct from "../hooks/useProduct";
-import Button from "../components/ui/buttons";
 
 const ProductsContainer = styled.div`
   width: 90%;
@@ -44,10 +43,11 @@ const Container = styled.div`
   padding: 2rem 0;
   margin-top: 8rem;
   & h3 {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     margin: 1.4rem 0;
     color: var(--green);
   }
+
   & button {
     margin: 2rem 0;
   }
@@ -56,27 +56,36 @@ const Container = styled.div`
   }
 `;
 
-export default function Popular() {
+export default function Search() {
   const [page, setPage] = useState(1);
+  const [results, setResults] = useState([]);
   const { products, loading, pageSize } = useProduct("createdAt", page, 5);
 
+  const router = useRouter();
+  const {
+    query: { q },
+  } = router;
+
+  useEffect(() => {
+    const search = q.toLocaleLowerCase();
+    const filtered = products?.filter((product) => {
+      return product.name.toLocaleLowerCase().includes(search);
+    });
+    setResults(filtered);
+  }, [q, products]);
+  console.log(products);
   return (
     <Container>
       <ProductsContainer>
-        <h1>Latest products </h1>
+        <h1>Results</h1>
         {loading && <ClimbingBoxLoader color=" #bffcfb" size={10} />}
         {!loading &&
-          products?.length > 0 &&
-          products?.map((product) => (
+          results?.length > 0 &&
+          results?.map((product) => (
             <ProductCard key={product.id} {...product} />
           ))}
-        {!loading && products?.length === 0 && <h3> There not products</h3>}
+        {!loading && results?.length === 0 && <h3> There not products</h3>}
       </ProductsContainer>
-      {pageSize >= 5 && (
-        <Button bgColor onClick={() => setPage(page + 1)}>
-          Load more
-        </Button>
-      )}
     </Container>
   );
 }
