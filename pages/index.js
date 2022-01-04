@@ -57,7 +57,7 @@ const Container = styled.div`
   }
 `;
 
-export default function Popular() {
+export default function Home() {
   const [page, setPage] = useState(1);
   const { products, loading, pageSize } = useProduct("createdAt", page, 5);
 
