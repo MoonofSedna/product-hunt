@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import { AppProps } from 'next/app';
 import Layout from '../components/layout/Layout';
 import useAuthentication from '../hooks/useAuthentication';
@@ -11,9 +12,18 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 	return (
 		<Provider store={store}>
-			<Layout loading={loading}>
-				<Component {...pageProps} />
-			</Layout>
+			<>
+				<Head>
+					<title>Product Hunt</title>
+					<meta
+						name='viewport'
+						content='minimum-scale=1, initial-scale=1, width=device-width'
+					/>
+				</Head>
+				<Layout loading={loading}>
+					<Component {...pageProps} />
+				</Layout>
+			</>
 		</Provider>
 	);
 }

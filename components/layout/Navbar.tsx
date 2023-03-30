@@ -49,13 +49,14 @@ const LinkItem = styled.div`
 	&:hover,
 	&.active {
 		position: relative;
+
 		&:after {
 			content: '';
 			position: absolute;
 			bottom: -5px;
 			width: 110%;
-
-			border: 1px solid var(--pink);
+			transition: all 0.3s ease-in-out;
+			border: 1px solid var(--gray3);
 		}
 	}
 `;
